@@ -1,19 +1,49 @@
 <md-tab-group>
   <md-tab label="Watch List">
     <div class="tab-container">
-      Projects on my watch list.
+      <md-list>
+        <h3 md-subheader>Projects on my watch list.</h3>
+        <div *ngFor="let project of projects">
+          <md-list-item *ngIf="project.status === 'watching'">
+            <md-icon md-list-avatar>{{project.icon}}</md-icon>
+            <h4 md-line>{{project.name}}</h4>
+            <p md-line> {{project.address}} </p>
+          </md-list-item>
+        </div>
+        <md-divider></md-divider>
+      </md-list>
     </div>
   </md-tab>
 
   <md-tab label="In Progress">
     <div class="tab-container">
-      Projects that are in progress.
+      <md-list>
+        <h3 md-subheader>Projects that are in progress.</h3>
+        <div *ngFor="let project of projects">
+          <md-list-item *ngIf="project.status === 'in_progress'">
+            <md-icon md-list-avatar>{{project.icon}}</md-icon>
+            <h4 md-line>{{project.name}}</h4>
+            <p md-line> {{project.address}} </p>
+          </md-list-item>
+        </div>
+        <md-divider></md-divider>
+      </md-list>
     </div>
   </md-tab>
 
   <md-tab label="Completed">
     <div class="tab-container">
-      Projects that have been completed.
+      <md-list>
+        <h3 md-subheader>Projects that have been completed.</h3>
+        <div *ngFor="let project of projects">
+          <md-list-item *ngIf="project.status === 'completed'">
+            <md-icon md-list-avatar>{{project.icon}}</md-icon>
+            <h4 md-line>{{project.name}}</h4>
+            <p md-line> {{project.address}} </p>
+          </md-list-item>
+        </div>
+        <md-divider></md-divider>
+      </md-list>
     </div>
   </md-tab>
 </md-tab-group>
