@@ -1,6 +1,16 @@
 <md-toolbar color="primary">
   My App
-  <a routerLink="/home">Home</a>
 </md-toolbar>
 
-<router-outlet></router-outlet>
+<nav class="main-side-nav">
+  <md-list>
+    <md-list-item routerLink="/home"> <md-icon>home</md-icon> </md-list-item>
+    <md-list-item routerLink="/projects"> <md-icon>archive</md-icon> </md-list-item>
+  </md-list>
+</nav>
+
+<div id="router-container">
+  <md-card>
+    <router-outlet></router-outlet>
+  </md-card>
+</div>
