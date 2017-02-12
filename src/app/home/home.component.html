@@ -1,3 +1,46 @@
-<p>
-  home works!
-</p>
+<form class="example-form">
+
+  <md-grid-list cols="2" gutterSize="25" rowHeight="100">
+    <md-grid-tile>
+      <md-input-container class="example-full-width">
+        <input md-input placeholder="Project Name">
+      </md-input-container>
+    </md-grid-tile>
+
+    <md-grid-tile>
+      <md-select class="example-full-width" placeholder="Select Remodel Type">
+        <md-option *ngFor="let type of types">
+          {{type}}
+        </md-option>
+      </md-select>
+    </md-grid-tile>
+  </md-grid-list>
+
+  <button md-raised-button color="accent" (click)="displaySettings()">Next</button>
+
+  <div [hidden]="!typeSelected">
+    <md-grid-list cols="1" rowHeight="100">
+      <md-grid-tile>
+        <md-select class="example-full-width" placeholder="Select Room">
+          <md-option *ngFor="let room of rooms">
+            {{room}}
+          </md-option>
+        </md-select>
+      </md-grid-tile>
+    </md-grid-list>
+
+    <button md-raised-button color="accent" (click)="displayMaterials()">Next</button>
+  </div>
+
+  <div [hidden]="!roomSelected">
+    <md-nav-list>
+      <md-list-item *ngFor="let link of links">
+         <a md-line href="#">{{ link }}</a>
+         <button md-icon-button (click)="showInfo(link)">
+            <md-icon>info</md-icon>
+         </button>
+      </md-list-item>
+    </md-nav-list>
+  </div>
+  
+</form>
